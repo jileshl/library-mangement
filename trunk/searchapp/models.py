@@ -12,8 +12,8 @@ class Particular(models.Model):
         event = models.CharField(max_length=2000)
         general = models.CharField(max_length=2000)
 
-        def __unicode__(self):
-                return self.name
+        #def __unicode__(self):
+        #        return self.name
         class Meta:
                 verbose_name_plural = "Particulars"
                 db_table = "Particular"
@@ -27,8 +27,8 @@ class Journal(models.Model):
         project  = models.CharField(max_length=2000)
         general = models.CharField(max_length=2000)
 
-        def __unicode__(self):
-                return self.name
+        #def __unicode__(self):
+        #        return self.name
         class Meta:
                 verbose_name_plural = "Journals"
                 db_table = "Journal"
@@ -41,8 +41,8 @@ class Book(models.Model):
         particulars = models.CharField(max_length=2000)
         Bycorrea = models.BooleanField()
 
-        def __unicode__(self):
-                return self.name
+        #def __unicode__(self):
+        #        return self.name
         class Meta:
                 verbose_name_plural = "Books"
                 db_table = "Book"
@@ -52,8 +52,8 @@ class Abbreviation(models.Model):
         Abbreviation = models.CharField(max_length=20)
         project  = models.CharField(max_length=2000)
 
-        def __unicode__(self):
-                return self.name
+        #def __unicode__(self):
+        #        return self.name
         class Meta:
                 verbose_name_plural = "Abbreviations"
                 db_table = "Abbreviation"	
