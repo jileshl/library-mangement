@@ -1,61 +1,33 @@
 from django.db import models
 
-class Particular(models.Model):
+class Type(models.Model):
+        id = models.AutoField(primary_key=True)
+        name = models.CharField(max_length=15, unique=True)
+        class Meta:
+                verbose_name_plural = "Types"
+                db_table = "Type"
+                
+class Library(models.Model):
         id = models.AutoField(primary_key=True)
         year = models.CharField(max_length=5)
         code = models.CharField(max_length=10)
-        type = models.CharField(max_length=10)
-        title = models.CharField(max_length=2000)
+        type = models.ForeignKey(Type, to_field='name')
         particulars = models.CharField(max_length=2000)
         project  = models.CharField(max_length=2000)
         issue = models.CharField(max_length=2000)
         event = models.CharField(max_length=2000)
         general = models.CharField(max_length=2000)
-
-        #def __unicode__(self):
-        #        return self.name
+        resource = models.CharField(max_length=200)
+        
         class Meta:
-                verbose_name_plural = "Particulars"
-                db_table = "Particular"
-
-class Journal(models.Model):
-        id = models.AutoField(primary_key=True)
-        year = models.CharField(max_length=5)
-        code = models.CharField(max_length=10)
-        type = models.CharField(max_length=10)
-        particulars = models.CharField(max_length=2000)
-        project  = models.CharField(max_length=2000)
-        general = models.CharField(max_length=2000)
-
-        #def __unicode__(self):
-        #        return self.name
-        class Meta:
-                verbose_name_plural = "Journals"
-                db_table = "Journal"
-
-class Book(models.Model):
-        id = models.AutoField(primary_key=True)
-        year = models.CharField(max_length=5)
-        code = models.CharField(max_length=10)
-        type = models.CharField(max_length=10)
-        particulars = models.CharField(max_length=2000)
-        Bycorrea = models.BooleanField()
-
-        #def __unicode__(self):
-        #        return self.name
-        class Meta:
-                verbose_name_plural = "Books"
-                db_table = "Book"
+                verbose_name_plural = "Library"
+                db_table = "Library"
 
 class Abbreviation(models.Model):
         id = models.AutoField(primary_key=True)
         Abbreviation = models.CharField(max_length=20)
         project  = models.CharField(max_length=2000)
 
-        #def __unicode__(self):
-        #        return self.name
         class Meta:
                 verbose_name_plural = "Abbreviations"
-                db_table = "Abbreviation"	
-
-#class Drawings(models.Model):	
+                db_table = "Abbreviation"
