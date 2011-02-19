@@ -1,6 +1,17 @@
 <html>
 <title>Search Page</title>
+<script language="JavaScript">
+	function submitform() {
+		document.forms["searchform"].submit();
+	}
+</script>
 <body>
-This is a search Page
+	This is a search Page
 </body>
+<form name="searchform" action="searchResult" />
+<div>
+<input type="text" name="search" />
+<input type="button" value = "getResults" onclick="javascript: submitform()"/>
+</div>
+</form>
 </html>
