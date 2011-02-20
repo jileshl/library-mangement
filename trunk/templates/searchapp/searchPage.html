@@ -1,5 +1,24 @@
 <html>
 <title>Search Page</title>
+<style type="text/css">
+	body {
+		margin:0 auto;
+		padding:0;
+		#text-align:center;
+		width:1000px;
+		font-size:12px;
+		font-family:arial,
+		verdana;
+		background-color:#c0c0c0;
+		color:#808080;
+	}
+
+	.searchwidget {
+		width:500px;
+		float:right;
+		padding:15px 0 0 0;
+	}
+</style>
 <script language="JavaScript">
 	function submitform() {
 		document.forms["searchform"].submit();
@@ -9,9 +28,17 @@
 	This is a search Page
 </body>
 <form name="searchform" action="searchResult" />
-<div>
+<div class="searchwidget">
 <input type="text" name="search" />
-<input type="button" value = "getResults" onclick="javascript: submitform()"/>
+<select>
+	<option value = "0" selected>All</option>
+	<option value = "1">Particulars</option>
+	<option value = "2">Project</option>
+	<option value = "3">Issue</option>
+	<option value = "4">Event</option>
+	<option value = "5">General</option>
+	<option value = "6">Not particulars</option>	
+<input type="button" value = "search" onclick="javascript: submitform()"/>
 </div>
 </form>
 </html>
