@@ -91,7 +91,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.admindocs',    
 	'searchapp',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 )
