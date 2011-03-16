@@ -37,7 +37,8 @@ class Library(models.Model):
         ByCCORREA = models.BooleanField()
         
         def __unicode__(self):
-                return self.code        
+                return self.code
+        
         class Meta:
                 verbose_name_plural = "Library"
                 db_table = "Library"
