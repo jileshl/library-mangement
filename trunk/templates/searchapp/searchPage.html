@@ -6,19 +6,37 @@
 	}
 </script>
 <div class="searchwidget">
-	<form name="searchform" action="searchResult" />		
-		<input type="text" name="search" />
-			<select>
-				<option value = "0" selected>All</option>
-				<option value = "1">Particulars</option>
-				<option value = "2">Project</option>
-				<option value = "3">Issue</option>
-				<option value = "4">Event</option>
-				<option value = "5">General</option>
-				<option value = "6">Not particulars</option>	
+	<form  method="POST" name="searchform" action="searchResult" />		
+	{% csrf_token %}
+		<input type="text" name="search" value="{{ search }}" />
+			<select name="searchfield">
+				<option value = "0" {% ifequal searchfield '0' %}selected {% endifequal%} >All</option>
+				<option value = "1"  {% ifequal searchfield '1' %}selected {% endifequal%} >Particulars</option>
+				<option value = "2"  {% ifequal searchfield '2' %}selected {% endifequal%} >Project</option>
+				<option value = "3"  {% ifequal searchfield '3' %}selected {% endifequal%} >Issue</option>
+				<option value = "4"  {% ifequal searchfield '4' %}selected {% endifequal%} >Event</option>
+				<option value = "5"  {% ifequal searchfield '5' %}selected {% endifequal%} >General</option>
+				<option value = "6"  {% ifequal searchfield '6' %}selected {% endifequal%} >Not particulars</option>	
 			</select>
 		<input type="button" value = "search" onclick="javascript: submitform()"/>
 	</form>
 </div>
+
 <div> This is a search Page </div>
+
+{% ifequal searchResult 'true' %}
+
+<div class="searchResultView">
+	{% for key, value in searchResultValue.items %}
+		<div class="resultHead">
+			<h1> {{key}} : {{value|length}} </h1>
+		</div>
+		{% for val in value %}
+		 <div class="resultBody">
+			<li> {{val.year}} - {{val.code}} : {{ val.particulars}} | By Charles Correa {{ val.ByCCORREA }} </li>
+		 </div>
+		{% endfor %}
+	{% endfor %}
+</div>
+{% endifequal %}
 {% endblock formcontainer %}
