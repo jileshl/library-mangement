@@ -16,7 +16,7 @@ class Abbreviation(models.Model):
         project  = models.CharField(max_length=2000)
 
         def __unicode__(self):
-                return '{0}-{1}'.format(self.id, self.shortname)
+                return '{0} ({1})'.format(self.project, self.shortname)
 
         class Meta:
                 verbose_name_plural = "Abbreviations"

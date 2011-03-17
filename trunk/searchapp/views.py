@@ -67,7 +67,7 @@ def searchParticulars(value):
     return Library.objects.filter(particulars__icontains=value).order_by('year')
 
 def searchProject(value):
-    return Library.objects.filter(project__shortname__icontains=value).order_by('year')
+    return Library.objects.filter(project__project__icontains=value).order_by('year')
 
 def searchIssue(value):
     return Library.objects.filter(issue__icontains=value).order_by('year')
