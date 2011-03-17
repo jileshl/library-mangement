@@ -1,0 +1,34 @@
+body {
+	margin:0 auto;
+	padding:0;
+	#text-align:center;
+	width:1000px;
+	font-size:20px;
+	font-family:arial, verdana;
+	font-weight: bolder;
+	background-color: #c0c0c0;
+	color:#FFFFFF;
+}
+
+.container {
+	background-image: url("/static/bg.jpg");
+    background-repeat: repeat;
+}
+
+.searchwidget {
+	width:500px;
+	float:right;
+	padding:15px 0 0 0;
+}
+
+.searchResultView {
+	 padding-top: 200px;
+}
+
+.resultHead {
+	text-decoration: underline;
+}
+
+.resultBody{
+	margin-left: 50px;
+}
